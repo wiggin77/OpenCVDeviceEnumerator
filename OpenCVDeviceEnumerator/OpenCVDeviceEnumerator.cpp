@@ -12,25 +12,36 @@ int main()
 
 	DeviceEnumerator de;
 
+	std::cout << "[" << std::endl;
+
 	// Audio Devices
 	std::map<int, Device> devices = de.getAudioDevicesMap();
 
 	// Print information about the devices
-	for (auto const &device : devices) {
-		std::cout << "== AUDIO DEVICE (id:" << device.first << ") ==" << std::endl;
-		std::cout << "Name: " << device.second.deviceName << std::endl;
-		std::cout << "Path: " << device.second.devicePath << std::endl;
+	for (auto const &device : devices) 
+	{
+		std::cout << "    { ";
+		std::cout << "\"type\": \"video\", ";
+		std::cout << "\"id\": " << device.first << ", ";
+		std::cout << "\"name\": \"" << device.second.deviceName << "\"";
+		//std::cout << "\"path\": '" << device.second.devicePath << "\"";
+		std::cout << " }" << std::endl;
 	}
 
 	// Video Devices
 	devices = de.getVideoDevicesMap();
 
 	// Print information about the devices
-	for (auto const &device : devices) {
-		std::cout << "== VIDEO DEVICE (id:" << device.first << ") ==" << std::endl;
-		std::cout << "Name: " << device.second.deviceName << std::endl;
-		std::cout << "Path: " << device.second.devicePath << std::endl;
+	for (auto const &device : devices) 
+	{
+		std::cout << "    { ";
+		std::cout << "\"type\": \"video\", ";
+		std::cout << "\"id\": " << device.first << ", ";
+		std::cout << "\"name\": \"" << device.second.deviceName << "\"";
+		//std::cout << "\"path\": '" << device.second.devicePath << "\"";
+		std::cout << " }" << std::endl;
 	}
 	
+	std::cout << "]" << std::endl;
 }
 
